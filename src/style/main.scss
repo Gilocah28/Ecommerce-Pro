@@ -1,0 +1,13 @@
+@import './variable';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $kumbhSans;
+    font-size: $FontSize1rem;
+}
+
+body{
+    background: $White;
+}
