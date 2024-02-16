@@ -1,0 +1,123 @@
+@import '../../style/variable';
+@import '../../style/media';
+
+.navbar{
+    max-width: 1440px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+
+    .logo_container{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .hamburger-menu{
+            display: none;
+
+            
+            @include laptop{
+                display: block;
+                z-index: 1;
+                cursor: pointer;
+                transition: all 500ms ease-in-out;
+            }
+        }
+
+        ul{
+            list-style: none;
+            transition: all 500ms ease-in-out;
+
+            &:hover{
+                transition: color 300ms ease-in-out;
+                color: $Verydarkblue;
+            }
+        }
+
+
+        .list-item{
+            list-style: none;
+            display: flex;
+            margin-top: 4px;
+            .list-item-group{
+                margin-right: 1rem;
+                cursor: pointer;
+                color: $Grayishblue;
+                font-weight: 500;
+
+                &:hover{
+                    transition: all 300ms ease-in-out;
+                    color: $BlackOpacity75;
+                }
+
+                @include laptop{
+                    display: none;
+                }
+
+                
+            }
+
+
+        }
+
+        .list-item-mobile{
+            display: none;
+
+            @include laptop{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                background-color: $White;
+                width: 50%;
+                padding: 5rem 3rem;
+                animation: slide 300ms ease-in-out;
+                
+                
+                .list-item-group{
+                    
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+
+                    &:hover{
+                        transition: all 300ms ease-in-out;
+                        color: $Orange;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .profile-cart{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        img{
+            cursor: pointer;
+        }
+
+        .profile{
+            width: 40px;
+            height: 40px;
+            border: 2px solid $Orange;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+@keyframes slide {
+    from{
+        width: 0;
+    }
+    to{
+        width: 50%;
+    }
+}
