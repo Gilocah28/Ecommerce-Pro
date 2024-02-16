@@ -7,7 +7,8 @@
 
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem 3rem;
+    padding: 2.5rem 3rem;
+    border-bottom: 2px solid $Lightgrayishblue;
 
     .logo_container{
         display: flex;
@@ -47,6 +48,14 @@
                 color: $Grayishblue;
                 font-weight: 500;
 
+                &::after{
+                    content: '';
+                    width: 50xp;
+                    height: 50px;
+                    background: $Orange;
+                    
+                }
+
                 &:hover{
                     transition: all 300ms ease-in-out;
                     color: $BlackOpacity75;
@@ -76,6 +85,7 @@
                 width: 50%;
                 padding: 5rem 3rem;
                 animation: slide 300ms ease-in-out;
+                transition: all 300ms ease-in-out;
                 
                 
                 .list-item-group{

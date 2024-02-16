@@ -4,7 +4,7 @@ import Title from './textTitle/Title'
 
 const MainContainer = () => {
   return (
-    <div>
+    <div className='main'>
       <ImageGrid/>
       <Title/>
     </div>
