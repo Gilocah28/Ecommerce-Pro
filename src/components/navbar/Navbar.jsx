@@ -9,12 +9,19 @@ import './navbar.scss'
 const Navbar = () => {
 
   const [lists, setLists] = useState(['Collection', 'Men', 'Women', 'About', 'Contact'])
-  const [isMenu, setIsMenu] = useState(true)
+
+  const [handleMenuBtn, setHandleMenuBtn] = useState(null)
+  const [isBg, setIsBg] = useState(true)
+
 
   const handleMenu = () => {
-    setIsMenu(!isMenu)
+
     const body = document.querySelector('body')
-    body.style.backgroundColor = isMenu ? 'hsla(0, 0%, 0%, 0.10)' : null
+
+    setHandleMenuBtn((prevMenu) => prevMenu === null ? 'list-item-mobile' : null)
+    setIsBg(!isBg)
+    body.style.backgroundColor = isBg ? 'hsla(0, 0%, 0%, 0.10)' : null;
+
   }
 
 
@@ -24,17 +31,13 @@ const Navbar = () => {
       <div className="logo_container">
 
         <div className="hamburger-menu" onClick={handleMenu}>
-          <img src={!isMenu ? close : menu} alt="menu" />
+          <img src={isBg ? menu : close} alt="menu" />
         </div>
 
         <img src={logo} alt="Logo" />
-        <ul className="list-item">
+        <ul className={`list-item ${handleMenuBtn}`}>
           {lists.map((list, index) => <li key={index} className='list-item-group'>{list}</li>)}
         </ul>
-        
-        {!isMenu && <ul className="list-item-mobile">
-          {lists.map((list, index) => <li key={index} className='list-item-group'>{list}</li>)}
-        </ul>}
 
       </div>
 

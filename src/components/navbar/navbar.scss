@@ -1,121 +1,103 @@
 @import '../../style/variable';
 @import '../../style/media';
 
-.navbar{
+
+.navbar {
+    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
 
     display: flex;
     justify-content: space-between;
-    padding: 2.5rem 3rem;
-    border-bottom: 2px solid $Lightgrayishblue;
+    align-items: center;
+    border-bottom: 1px solid $Grayishblue;
+    box-shadow: 0px 7px 4px -5px rgba(0, 0, 0, 0.24);
+    padding: 2rem 3rem;
 
-    .logo_container{
+    @include mobile{
+        padding: 2rem 1rem;
+    }
+
+    .logo_container {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 3rem;
 
-        .hamburger-menu{
+        @include mobile{
+            gap: 1rem;
+        }
+
+        .hamburger-menu {
             display: none;
+            margin-top: 10px;
 
-            
-            @include laptop{
+            @include laptop {
                 display: block;
                 z-index: 1;
                 cursor: pointer;
-                transition: all 500ms ease-in-out;
-            }
-        }
-
-        ul{
-            list-style: none;
-            transition: all 500ms ease-in-out;
-
-            &:hover{
-                transition: color 300ms ease-in-out;
-                color: $Verydarkblue;
+                transition: 500ms ease-in-out;
             }
         }
 
 
-        .list-item{
+        ul {
+            margin-top: 3px;
             list-style: none;
             display: flex;
-            margin-top: 4px;
-            .list-item-group{
-                margin-right: 1rem;
-                cursor: pointer;
-                color: $Grayishblue;
-                font-weight: 500;
+            align-items: center;
 
-                &::after{
-                    content: '';
-                    width: 50xp;
-                    height: 50px;
-                    background: $Orange;
-                    
-                }
-
-                &:hover{
-                    transition: all 300ms ease-in-out;
-                    color: $BlackOpacity75;
-                }
-
-                @include laptop{
-                    display: none;
-                }
-
-                
+            @include laptop {
+                display: none;
             }
 
 
+
+            li {
+                margin-right: 1rem;
+                font-weight: 500;
+                cursor: pointer;
+                color: $Darkgrayishblue;
+
+                &:hover {
+                    transition: all 300ms linear;
+                    color: $Verydarkblue;
+                }
+            }
         }
 
-        .list-item-mobile{
+        .list-item-mobile {
             display: none;
 
-            @include laptop{
-                position: absolute;
+            @include laptop {
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                align-items: center;
+                position: absolute;
+                background-color: $White;
                 left: 0;
                 top: 0;
                 bottom: 0;
-                background-color: $White;
-                width: 50%;
-                padding: 5rem 3rem;
-                animation: slide 300ms ease-in-out;
-                transition: all 300ms ease-in-out;
-                
-                
-                .list-item-group{
-                    
-                    margin-bottom: 1rem;
-                    font-weight: 600;
-                    cursor: pointer;
-
-                    &:hover{
-                        transition: all 300ms ease-in-out;
-                        color: $Orange;
-                    }
-                }
+                width: 70%;
+                height: 100%;
+                animation: slide 300ms ease;
             }
         }
     }
 
-
-    .profile-cart{
+    .profile-cart {
         display: flex;
         align-items: center;
         gap: 1.5rem;
 
-        img{
+        img {
             cursor: pointer;
         }
 
-        .profile{
-            width: 40px;
-            height: 40px;
+        .profile {
+            width: 35px;
+            height: 35px;
             border: 2px solid $Orange;
             border-radius: 50%;
         }
@@ -124,10 +106,11 @@
 
 
 @keyframes slide {
-    from{
+    from {
         width: 0;
     }
-    to{
-        width: 50%;
+
+    to {
+        width: 70%;
     }
 }
