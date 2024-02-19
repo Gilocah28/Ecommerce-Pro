@@ -1,8 +1,9 @@
 import React from 'react'
+import './title.scss'
 
 const Title = () => {
   return (
-    <div>
+    <div className='title'>
       Title
     </div>
   )
